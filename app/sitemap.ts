@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import prisma from "@/lib/prisma";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const users = await prisma.user.findMany({
+  const accounts = await prisma.account.findMany({
     select: {
       id: true,
     },
@@ -11,11 +11,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: "https://precedent.dev",
+      url: "https://radarlink.tech",
       lastModified: new Date(),
     },
-    ...users.map((user) => ({
-      url: `https://precedent.dev/${user.id}`,
+    ...accounts.map((account) => ({
+      url: `https://radarlink.tech/${account.id}`,
       lastModified: new Date(),
     })),
   ];

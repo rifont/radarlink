@@ -5,11 +5,11 @@ export default function Footer() {
         A free template by{" "}
         <a
           className="font-medium text-gray-800 underline transition-colors"
-          href="https://twitter.com/steventey"
+          href="https://twitter.com/richard_fontein"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Steven Tey
+          Richard Fontein
         </a>
       </p>
     </div>

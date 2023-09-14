@@ -1,6 +1,6 @@
-<a href="https://precedent.dev">
-  <img alt="Precedent – Building blocks for your Next project" src="https://precedent.dev/opengraph-image">
-  <h1 align="center">Precedent</h1>
+<a href="https://radarlink.tech">
+  <img alt="RadarLink – Building blocks for your Next project" src="https://radarlink.tech/opengraph-image">
+  <h1 align="center">RadarLink</h1>
 </a>
 
 <p align="center">
@@ -8,11 +8,11 @@
 </p>
 
 <p align="center">
-  <a href="https://twitter.com/steventey">
-    <img src="https://img.shields.io/twitter/follow/steventey?style=flat&label=steventey&logo=twitter&color=0bf&logoColor=fff" alt="Steven Tey Twitter follower count" />
+  <a href="https://twitter.com/richard_fontein">
+    <img src="https://img.shields.io/twitter/follow/richard_fontein?style=flat&label=richard_fontein&logo=twitter&color=0bf&logoColor=fff" alt="Richard Fontein Twitter follower count" />
   </a>
-  <a href="https://github.com/steven-tey/precedent">
-    <img src="https://img.shields.io/github/stars/steven-tey/precedent?label=steven-tey%2Fprecedent" alt="Precedent repo star count" />
+  <a href="https://github.com/richardfontein/radarlink">
+    <img src="https://img.shields.io/github/stars/richardfontein/radarlink?label=richardfontein%2Fradarlink" alt="RadarLink repo star count" />
   </a>
 </p>
 
@@ -26,18 +26,18 @@
 
 ## Introduction
 
-Precedent is an opinionated collection of components, hooks, and utilities for your Next.js project.
+RadarLink is an opinionated collection of components, hooks, and utilities for your Next.js project.
 
 ## One-click Deploy
 
 You can deploy this template to Vercel with the button below:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsteven-tey%2Fprecedent&project-name=precedent&repository-name=precedent&demo-title=Precedent&demo-description=An%20opinionated%20collection%20of%20components%2C%20hooks%2C%20and%20utilities%20for%20your%20Next%20project.&demo-url=https%3A%2F%2Fprecedent.dev&demo-image=https%3A%2F%2Fprecedent.dev%2Fopengraph-image&env=GOOGLE_CLIENT_ID,GOOGLE_CLIENT_SECRET,NEXTAUTH_SECRET&envDescription=How%20to%20get%20these%20env%20variables%3A&envLink=https%3A%2F%2Fgithub.com%2Fsteven-tey%2Fprecedent%2Fblob%2Fmain%2F.env.example&stores=%5B%7B"type"%3A"postgres"%7D%5D)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frichardfontein%2Fradarlink&project-name=radarlink&repository-name=radarlink&demo-title=RadarLink&demo-description=An%20opinionated%20collection%20of%20components%2C%20hooks%2C%20and%20utilities%20for%20your%20Next%20project.&demo-url=https%3A%2F%2Fradarlink.tech&demo-image=https%3A%2F%2Fradarlink.tech%2Fopengraph-image&env=GOOGLE_CLIENT_ID,GOOGLE_CLIENT_SECRET,NEXTAUTH_SECRET&envDescription=How%20to%20get%20these%20env%20variables%3A&envLink=https%3A%2F%2Fgithub.com%2Frichardfontein%2Fradarlink%2Fblob%2Fmain%2F.env.example&stores=%5B%7B"type"%3A"postgres"%7D%5D)
 
 You can also clone & create this repo locally with the following command:
 
 ```bash
-npx create-next-app precedent --example "https://github.com/steven-tey/precedent"
+npx create-next-app radarlink --example "https://github.com/richardfontein/radarlink"
 ```
 
 ## Tech Stack + Features
@@ -69,7 +69,7 @@ https://user-images.githubusercontent.com/28986134/212368288-12f41e37-aa8c-4e0a-
 
 - `useIntersectionObserver` –  React hook to observe when an element enters or leaves the viewport
 - `useLocalStorage` – Persist data in the browser's local storage
-- `useScroll` – React hook to observe scroll position ([example](https://github.com/steven-tey/precedent/blob/main/components/layout/navbar.tsx#L12))
+- `useScroll` – React hook to observe scroll position ([example](https://github.com/richardfontein/radarlink/blob/main/components/layout/navbar.tsx#L12))
 - `nFormatter` – Format numbers with suffixes like `1.2k` or `1.2M`
 - `capitalize` – Capitalize the first letter of a string
 - `truncate` – Truncate a string to a specified length
@@ -87,4 +87,4 @@ https://user-images.githubusercontent.com/28986134/212368288-12f41e37-aa8c-4e0a-
 
 ## Author
 
-- Steven Tey ([@steventey](https://twitter.com/steventey))
+- Richard Fontein ([@richardfontein](https://twitter.com/richard_fontein))
