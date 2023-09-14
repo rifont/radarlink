@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ["lh3.googleusercontent.com", "vercel.com"],
+    domains: ["lh3.googleusercontent.com", "vercel.com", "media.licdn.com"],
   },
   async redirects() {
     return [
