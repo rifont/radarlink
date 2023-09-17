@@ -16,195 +16,38 @@ function createIndexedDataset(letters: string[]): { letter: string, index: strin
     });
 }
 
-const WORDS = [
-    "javascript",
-    "typescript",
-    "react",
-    "angular",
-    "vue",
-    "html",
-    "css",
-    "sass",
-    "less",
-    "bootstrap",
-    "tailwind",
-    "material-ui",
-    "redux",
-    "mobx",
-    "graphql",
-    "apollo",
-    "axios",
-    "fetch",
-    "webpack",
-    "babel",
-    "eslint",
-    "prettier",
-    "jest",
-    "mocha",
-    "chai",
-    "enzyme",
-    "cypress",
-    "storybook",
-    "next.js",
-    "gatsby",
-    "nuxt.js",
-    "express",
-    "koa",
-    "nestjs",
-    "django",
-    "flask",
-    "laravel",
-    "ruby on rails",
-    "spring boot",
-    "dotnet",
-    "php",
-    "mysql",
-    "postgresql",
-    "mongodb",
-    "redis",
-    "firebase",
-    "aws",
-    "azure",
-    "google cloud",
-    "docker",
-    "kubernetes",
-    "jenkins",
-    "circleci",
-    "travis ci",
-    "git",
-    "github",
-    "gitlab",
-    "bitbucket",
-    "jira",
-    "confluence",
-    "slack",
-    "trello",
-    "notion",
-    "vscode",
-    "intellij",
-    "webstorm",
-    "pycharm",
-    "android studio",
-    "xcode",
-    "vim",
-    "emacs",
-    "agile",
-    "scrum",
-    "kanban",
-    "devops",
-    "continuous integration",
-    "continuous deployment",
-    "test-driven development",
-    "unit testing",
-    "integration testing",
-    "end-to-end testing",
-    "performance testing",
-    "security testing",
-    "code review",
-    "pair programming",
-    "refactoring",
-    "clean code",
-    "design patterns",
-    "algorithms",
-    "data structures",
-    "database design",
-    "rest",
-    "graphql",
-    "soap",
-    "oauth",
-    "jwt",
-    "session management",
-    "authentication",
-    "authorization",
-    "encryption",
-    "hashing",
-    "caching",
-    "logging",
-    "monitoring",
-    "troubleshooting",
-    "debugging",
-    "error handling",
-    "exception handling",
-    "agile methodologies",
-    "waterfall methodology",
-    "scrum",
-    "kanban",
-    "lean",
-    "pair programming",
-    "continuous integration",
-    "continuous deployment",
-    "test-driven development",
-    "behavior-driven development",
-    "object-oriented programming",
-    "functional programming",
-    "imperative programming",
-    "declarative programming",
-    "procedural programming",
-    "concurrent programming",
-    "parallel programming",
-    "asynchronous programming",
-    "synchronous programming",
-    "static typing",
-    "dynamic typing",
-    "strong typing",
-    "weak typing",
-    "static analysis",
-    "linting",
-    "code coverage",
-    "code quality",
-    "code review",
-    "version control",
-    "git",
-    "svn",
-    "mercurial",
-    "continuous integration",
-    "continuous deployment",
-    "build automation",
-    "dependency management",
-    "package management",
-    "build tools",
-    "task runners",
-    "module bundlers",
-    "package managers",
-    "linter",
-    "formatter",
-    "transpiler",
-    "minifier",
-    "bundler",
-    "compiler",
-    "interpreter",
-    "virtual machine",
-    "containerization",
-    "orchestration",
-    "microservices",
-    "serverless",
-    "cloud computing",
-];
-
 export type LetterProps = {
-    words?: string[];
+    words: string[];
+    prefix?: string;
     height?: number;
+    width?: number;
     className?: string;
     letterTransitionDuration?: number;
     wordTransitionDuration?: number;
     enterColor?: string;
     updateColor?: string;
     exitColor?: string;
+    prefixColor?: string;
 };
 
+const PREFIX_CHAR_SUFFIX = 'P';
+
 export const Letters = ({
-    words = WORDS,
+    words,
+    prefix = "",
     height = 60,
+    width = (words.sort((a, b) => b.length - a.length)[0].length + prefix.length) * height / 2.5,
     className = "",
     letterTransitionDuration = 750,
     wordTransitionDuration = 3000,
     enterColor = "blue",
     updateColor = "black",
     exitColor = "blue",
+    prefixColor = "green",
 }: LetterProps) => {
-    const width = height * 5;
     const letterHeight = height / 2;
     const letterWidth = height / 5;
+    const prefixData = prefix.split("").map((letter, index) => ({ letter, index: `${letter}${PREFIX_CHAR_SUFFIX}` }));
 
     const ref = useRef(null);
 
@@ -218,7 +61,7 @@ export const Letters = ({
             .duration(letterTransitionDuration);
         svgElement.selectAll("text")
             // @ts-expect-error
-            .data(indexedWordsets[index], d => d.index)
+            .data([...prefixData, ...indexedWordsets[index]], d => d.index)
             .join(
                 enter => enter.append("text")
                     .attr("fill", enterColor)
@@ -229,7 +72,7 @@ export const Letters = ({
                     .call(enter => enter.transition(t)
                         .attr("y", 0)),
                 update => update
-                    .attr("fill", updateColor)
+                    .attr("fill", (d, i) => d.index.includes(PREFIX_CHAR_SUFFIX) ? prefixColor : updateColor)
                     .attr("y", 0)
                     // @ts-expect-error
                     .call(update => update.transition(t)
@@ -241,7 +84,7 @@ export const Letters = ({
                         .attr("y", letterHeight)
                         .remove())
             );
-    }, [enterColor, exitColor, index, indexedWordsets, letterHeight, letterTransitionDuration, letterWidth, updateColor])
+    }, [enterColor, exitColor, index, indexedWordsets, letterHeight, letterTransitionDuration, letterWidth, prefixColor, prefixData, updateColor])
 
     useInterval(() => {
         setIndex((curIndex) => (curIndex + 1) % indexedWordsets.length);
