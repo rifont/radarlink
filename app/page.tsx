@@ -6,6 +6,7 @@ import WebVitals from "@/components/home/web-vitals";
 import ComponentGrid from "@/components/home/component-grid";
 import Image from "next/image";
 import { nFormatter } from "@/lib/utils";
+import Technology from "@/components/home/technologies";
 
 export default async function Home() {
   const { stargazers_count: stars } = await fetch(
@@ -42,15 +43,14 @@ export default async function Home() {
           className="animate-fade-up bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center font-display text-4xl font-bold tracking-[-0.02em] text-transparent opacity-0 drop-shadow-sm md:text-7xl md:leading-[5rem]"
           style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
         >
-          <Balancer>Building blocks for your Next project</Balancer>
+          <Balancer>Tech radar for your professional network</Balancer>
         </h1>
         <p
           className="mt-6 animate-fade-up text-center text-gray-500 opacity-0 md:text-xl"
           style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
         >
           <Balancer>
-            An opinionated collection of components, hooks, and utilities for
-            your Next.js project.
+            Data visualisation tools to help you understand the tech landscape across your network and beyond.
           </Balancer>
         </p>
         <div
@@ -92,23 +92,12 @@ export default async function Home() {
             </p>
           </a>
         </div>
-      </div>
-      <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">
-        {features.map(({ title, description, demo, large }) => (
-          <Card
-            key={title}
-            title={title}
-            description={description}
-            demo={
-              title === "Beautiful, reusable components" ? (
-                <ComponentGrid />
-              ) : (
-                demo
-              )
-            }
-            large={large}
-          />
-        ))}
+        <div
+          className="mx-auto mt-6 flex animate-fade-up items-center justify-center space-x-5 opacity-0"
+          style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+        >
+          <Technology />
+        </div>
       </div>
     </>
   );
