@@ -6,6 +6,9 @@ import useScroll from "@/lib/hooks/use-scroll";
 import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
+import { ModeToggle } from "../shared/mode-toggle";
+import { Button } from "../ui/button";
+import { RadarLink } from "../shared/icons";
 
 export default function NavBar({ session }: { session: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
@@ -16,30 +19,22 @@ export default function NavBar({ session }: { session: Session | null }) {
       <SignInModal />
       <div
         className={`fixed top-0 w-full flex justify-center ${scrolled
-          ? "border-b border-gray-200 bg-white/50 backdrop-blur-xl"
+          ? "border-b border-border bg-background/50 backdrop-blur-xl"
           : "bg-white/0"
           } z-30 transition-all`}
       >
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-full">
           <Link href="/" className="flex items-center font-display text-2xl">
-            <Image
-              src="/logo.png"
-              alt="RadarLink logo"
-              width="30"
-              height="30"
-              className="mr-2 rounded-sm"
-            ></Image>
-            <p className="sm:block hidden">RadarLink</p>
+            <RadarLink className="h-8 w-8 mr-2" width={30} height={30} />
+            <p>RadarLink</p>
           </Link>
+          <div className="ml-auto mr-4"><ModeToggle /></div>
           {session ? (
             <UserDropdown session={session} />
           ) : (
-            <button
-              className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
-              onClick={() => setShowSignInModal(true)}
-            >
+            <Button onClick={() => setShowSignInModal(true)}>
               Sign In
-            </button>
+            </Button>
           )}
         </div>
       </div>

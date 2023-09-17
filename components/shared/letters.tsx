@@ -2,6 +2,7 @@
 import { useInterval } from "@/lib/hooks/use-interval"
 import { cx } from "class-variance-authority";
 import { select } from "d3"
+import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react"
 
 function createIndexedDataset(letters: string[]): { letter: string, index: string }[] {
@@ -28,6 +29,7 @@ export type LetterProps = {
     updateColor?: string;
     exitColor?: string;
     prefixColor?: string;
+    onClick?: (word: string) => void;
 };
 
 const PREFIX_CHAR_SUFFIX = 'P';
@@ -39,15 +41,16 @@ export const Letters = ({
     width = (words.sort((a, b) => b.length - a.length)[0].length + prefix.length) * height / 2.5,
     className = "",
     letterTransitionDuration = 750,
-    wordTransitionDuration = 3000,
+    wordTransitionDuration = 4000,
     enterColor = "blue",
     updateColor = "black",
     exitColor = "blue",
     prefixColor = "green",
+    onClick = () => { },
 }: LetterProps) => {
     const letterHeight = height / 2;
     const letterWidth = height / 5;
-    const prefixData = prefix.split("").map((letter, index) => ({ letter, index: `${letter}${PREFIX_CHAR_SUFFIX}` }));
+    const prefixData = prefix.split("").map((letter) => ({ letter, index: `${letter}${PREFIX_CHAR_SUFFIX}` }));
 
     const ref = useRef(null);
 
@@ -91,13 +94,16 @@ export const Letters = ({
     }, wordTransitionDuration)
 
     return (
-        <svg
-            viewBox={`0 ${-height / 3} ${width / 2} ${height / 2}`}
-            height={height}
-            width={width}
-            style={{ fontSize: letterHeight / 2 }}
-            className={cx("font-mono", className)}
-            ref={ref}
-        />
+        <Link href={`/${words[index]}`}>
+            <svg
+                viewBox={`0 ${-height / 3} ${width / 2} ${height / 2}`}
+                height={height}
+                width={width}
+                style={{ fontSize: letterHeight / 2 }}
+                className={cx("font-mono", className)}
+                ref={ref}
+                onClick={() => onClick(words[index])}
+            />
+        </Link>
     )
 }
