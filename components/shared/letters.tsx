@@ -25,10 +25,10 @@ export type LetterProps = {
     className?: string;
     letterTransitionDuration?: number;
     wordTransitionDuration?: number;
-    enterColor?: string;
-    updateColor?: string;
-    exitColor?: string;
-    prefixColor?: string;
+    enterClassName?: string;
+    updateClassName?: string;
+    existClassName?: string;
+    prefixClassName?: string;
     onClick?: (word: string) => void;
 };
 
@@ -42,10 +42,10 @@ export const Letters = ({
     className = "",
     letterTransitionDuration = 750,
     wordTransitionDuration = 4000,
-    enterColor = "blue",
-    updateColor = "black",
-    exitColor = "blue",
-    prefixColor = "green",
+    enterClassName = "fill-[blue]",
+    updateClassName = "fill-primary",
+    existClassName = "fill-[blue]",
+    prefixClassName = "fill-[blue]",
     onClick = () => { },
 }: LetterProps) => {
     const letterHeight = height / 2;
@@ -67,7 +67,7 @@ export const Letters = ({
             .data([...prefixData, ...indexedWordsets[index]], d => d.index)
             .join(
                 enter => enter.append("text")
-                    .attr("fill", enterColor)
+                    .attr("class", enterClassName)
                     .attr("x", (d, i) => i * letterWidth)
                     .attr("y", -letterHeight)
                     .text(d => d.letter)
@@ -75,19 +75,19 @@ export const Letters = ({
                     .call(enter => enter.transition(t)
                         .attr("y", 0)),
                 update => update
-                    .attr("fill", (d, i) => d.index.includes(PREFIX_CHAR_SUFFIX) ? prefixColor : updateColor)
+                    .attr("class", (d, i) => d.index.includes(PREFIX_CHAR_SUFFIX) ? prefixClassName : updateClassName)
                     .attr("y", 0)
                     // @ts-expect-error
                     .call(update => update.transition(t)
                         .attr("x", (d, i) => i * letterWidth)),
                 exit => exit
-                    .attr("fill", exitColor)
+                    .attr("class", existClassName)
                     // @ts-expect-error
                     .call(exit => exit.transition(t)
                         .attr("y", letterHeight)
                         .remove())
             );
-    }, [enterColor, exitColor, index, indexedWordsets, letterHeight, letterTransitionDuration, letterWidth, prefixColor, prefixData, updateColor])
+    }, [enterClassName, existClassName, index, indexedWordsets, letterHeight, letterTransitionDuration, letterWidth, prefixClassName, prefixData, updateClassName])
 
     useInterval(() => {
         setIndex((curIndex) => (curIndex + 1) % indexedWordsets.length);
@@ -99,7 +99,7 @@ export const Letters = ({
             height={height}
             width={width}
             style={{ fontSize: letterHeight / 2 }}
-            className={cx("font-mono", className)}
+            className={cx("font-mono", "transition-colors", className)}
             ref={ref}
             onClick={() => onClick(words[index])}
         />
