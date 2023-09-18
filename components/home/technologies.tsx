@@ -12,7 +12,7 @@ const Technology = () => {
             height={36}
             enterClassName="fill-[#448ae9]"
             updateClassName="fill-primary"
-            existClassName="fill-[#448ae9]"
+            exitClassName="fill-[#448ae9]"
             prefixClassName="fill-primary"
             prefix="> "
             onClick={(word) => console.log(word)}

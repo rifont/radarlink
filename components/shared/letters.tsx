@@ -27,7 +27,7 @@ export type LetterProps = {
     wordTransitionDuration?: number;
     enterClassName?: string;
     updateClassName?: string;
-    existClassName?: string;
+    exitClassName?: string;
     prefixClassName?: string;
     onClick?: (word: string) => void;
 };
@@ -44,7 +44,7 @@ export const Letters = ({
     wordTransitionDuration = 4000,
     enterClassName = "fill-[blue]",
     updateClassName = "fill-primary",
-    existClassName = "fill-[blue]",
+    exitClassName = "fill-[blue]",
     prefixClassName = "fill-[blue]",
     onClick = () => { },
 }: LetterProps) => {
@@ -81,13 +81,13 @@ export const Letters = ({
                     .call(update => update.transition(t)
                         .attr("x", (d, i) => i * letterWidth)),
                 exit => exit
-                    .attr("class", existClassName)
+                    .attr("class", exitClassName)
                     // @ts-expect-error
                     .call(exit => exit.transition(t)
                         .attr("y", letterHeight)
                         .remove())
             );
-    }, [enterClassName, existClassName, index, indexedWordsets, letterHeight, letterTransitionDuration, letterWidth, prefixClassName, prefixData, updateClassName])
+    }, [enterClassName, exitClassName, index, indexedWordsets, letterHeight, letterTransitionDuration, letterWidth, prefixClassName, prefixData, updateClassName])
 
     useInterval(() => {
         setIndex((curIndex) => (curIndex + 1) % indexedWordsets.length);
