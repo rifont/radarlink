@@ -50,8 +50,8 @@ export default function Leaflet({
         <div
           className={`rounded-t-4xl -mb-1 flex h-7 w-full items-center justify-center border-t border-border`}
         >
-          <div className="-mr-1 h-1 w-6 rounded-full bg-primary/70 transition-all group-active:rotate-12" />
-          <div className="h-1 w-6 rounded-full bg-primary/70 transition-all group-active:-rotate-12" />
+          <div className="-mr-1 h-1 w-6 rounded-full bg-secondary-foreground transition-all group-active:rotate-12" />
+          <div className="h-1 w-6 rounded-full bg-secondary-foreground transition-all group-active:-rotate-12" />
         </div>
         {children}
       </motion.div>
