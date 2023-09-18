@@ -94,16 +94,14 @@ export const Letters = ({
     }, wordTransitionDuration)
 
     return (
-        <Link href={`/${words[index]}`}>
-            <svg
-                viewBox={`0 ${-height / 3} ${width / 2} ${height / 2}`}
-                height={height}
-                width={width}
-                style={{ fontSize: letterHeight / 2 }}
-                className={cx("font-mono", className)}
-                ref={ref}
-                onClick={() => onClick(words[index])}
-            />
-        </Link>
+        <svg
+            viewBox={`0 ${-height / 3} ${width / 2} ${height / 2}`}
+            height={height}
+            width={width}
+            style={{ fontSize: letterHeight / 2 }}
+            className={cx("font-mono", className)}
+            ref={ref}
+            onClick={() => onClick(words[index])}
+        />
     )
 }

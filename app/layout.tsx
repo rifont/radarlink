@@ -6,8 +6,9 @@ import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 import { ThemeProvider } from "@/components/shared/theme-provider"
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "RadarLink - Building blocks for your Next.js project",
   description:
     "RadarLink is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
@@ -19,7 +20,10 @@ export const metadata = {
     creator: "@richard_fontein",
   },
   metadataBase: new URL("https://radarlink.tech"),
-  themeColor: "#FFF",
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#FFF' },
+    { media: '(prefers-color-scheme: dark)', color: '#000' },
+  ],
 };
 
 export default async function RootLayout({
