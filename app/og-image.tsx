@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/server";
+import { siteConfig } from '@/config/site'
 
 export const runtime = "edge";
-export const alt = "RadarLink - Building blocks for your Next.js project";
+export const alt = `${siteConfig.name} - ${siteConfig.description}`;
 export const contentType = "image/png";
 
 export default async function OG() {
