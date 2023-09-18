@@ -7,8 +7,7 @@ import {
   useCallback,
   useMemo,
 } from "react";
-import { LoadingDots, Google, LinkedIn, Github } from "@/components/shared/icons";
-import Image from "next/image";
+import { LoadingDots, Google, LinkedIn, Github, RadarLink } from "@/components/shared/icons";
 
 const Providers = [
   {
@@ -42,13 +41,7 @@ const SignInModal = ({
       <div className="w-full overflow-hidden shadow-xl md:max-w-md md:rounded-2xl md:border md:border-border">
         <div className="flex flex-col items-center justify-center space-y-3 border-b border-border bg-background px-4 py-6 pt-8 text-center md:px-16">
           <a href="https://radarlink.tech">
-            <Image
-              src="/logo.svg"
-              alt="Logo"
-              className="h-8 w-8"
-              width={20}
-              height={20}
-            />
+            <RadarLink className="h-10 w-10 mr-2" width={30} height={30} />
           </a>
           <h3 className="font-display text-2xl font-bold">Sign In</h3>
           <p className="text-sm text-primary/50">

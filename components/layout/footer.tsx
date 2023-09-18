@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { RadarLink } from "../shared/icons";
 
 export default function Footer() {
   return (
@@ -8,13 +8,7 @@ export default function Footer() {
         © {new Date().getFullYear()} RadarLink
       </p>
       <Link href="/" className="flex items-center font-display text-2xl mx-auto">
-        <Image
-          src="/logo.svg"
-          alt="Logo"
-          className="h-8 w-8 mr-2"
-          width={30}
-          height={30}
-        />
+        <RadarLink className="h-8 w-8 mr-2" width={30} height={30} />
         <p>RadarLink</p>
       </Link>
       <p className="text-primary/50 mx-5 w-48" />
