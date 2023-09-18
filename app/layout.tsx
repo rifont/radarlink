@@ -20,8 +20,13 @@ export const metadata: Metadata = {
     creator: "@richard_fontein",
   },
   icons: {
-    icon: { url: '/logo.svg', type: 'image/svg' },
-    shortcut: { url: '/logo.svg', type: 'image/svg' },
+    other: [
+      { url: '/icon.png', rel: 'mask-icon' },
+      { url: '/icon.png', rel: 'alternate icon' },
+    ],
+    apple: { url: '/icon.png' },
+    shortcut: { url: '/icon.svg' },
+    icon: { url: '/icon.svg' },
   },
   metadataBase: new URL("https://radarlink.tech"),
   themeColor: [
