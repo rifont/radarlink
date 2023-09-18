@@ -8,7 +8,6 @@ import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
 import { ModeToggle } from "../shared/mode-toggle";
 import { Button } from "../ui/button";
-import { RadarLink } from "../shared/icons";
 
 export default function NavBar({ session }: { session: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
@@ -25,7 +24,13 @@ export default function NavBar({ session }: { session: Session | null }) {
       >
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-full">
           <Link href="/" className="flex items-center font-display text-2xl">
-            <RadarLink className="h-8 w-8 mr-2" width={30} height={30} />
+            <Image
+              src="/logo.svg"
+              alt="Logo"
+              className="h-8 w-8 mr-2"
+              width={30}
+              height={30}
+            />
             <p>RadarLink</p>
           </Link>
           <div className="ml-auto mr-4"><ModeToggle /></div>

@@ -45,7 +45,7 @@ const SignInModal = ({
             <Image
               src="/logo.svg"
               alt="Logo"
-              className="h-10 w-10"
+              className="h-8 w-8"
               width={20}
               height={20}
             />

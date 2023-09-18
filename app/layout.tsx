@@ -19,6 +19,10 @@ export const metadata: Metadata = {
       "RadarLink is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
     creator: "@richard_fontein",
   },
+  icons: {
+    icon: { url: '/logo.svg', type: 'image/svg' },
+    shortcut: { url: '/logo.svg', type: 'image/svg' },
+  },
   metadataBase: new URL("https://radarlink.tech"),
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#FFF' },
