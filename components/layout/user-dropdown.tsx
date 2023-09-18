@@ -31,11 +31,11 @@ export default function UserDropdown({ session }: { session: Session }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem className="cursor-not-allowed">
-          <LayoutDashboard className="h-4 w-4 mr-2" />
+          <LayoutDashboard className="mr-2 h-4 w-4" />
           <p className="text-sm">Dashboard</p>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => signOut()}>
-          <LogOut className="h-4 w-4 mr-2" />
+          <LogOut className="mr-2 h-4 w-4" />
           <p className="text-sm">Logout</p>
         </DropdownMenuItem>
       </DropdownMenuContent>

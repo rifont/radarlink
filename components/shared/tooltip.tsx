@@ -32,7 +32,7 @@ export default function Tooltip({
       {openTooltip && isMobile && (
         <Leaflet setShow={setOpenTooltip}>
           {typeof content === "string" ? (
-            <span className="flex min-h-[150px] w-full items-center justify-center bg-background px-10 text-center text-sm text-gray-700">
+            <span className="bg-background flex min-h-[150px] w-full items-center justify-center px-10 text-center text-sm text-gray-700">
               {content}
             </span>
           ) : (
@@ -49,7 +49,7 @@ export default function Tooltip({
             <TooltipPrimitive.Content
               sideOffset={4}
               side="top"
-              className="z-30 hidden animate-slide-up-fade items-center overflow-hidden rounded-md border border-border bg-background drop-shadow-lg sm:block"
+              className="animate-slide-up-fade border-border bg-background z-30 hidden items-center overflow-hidden rounded-md border drop-shadow-lg sm:block"
             >
               <TooltipPrimitive.Arrow className="fill-current text-white" />
               {typeof content === "string" ? (

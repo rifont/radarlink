@@ -5,9 +5,9 @@ import useScroll from "@/lib/hooks/use-scroll";
 import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
-import { ModeToggle } from "../shared/mode-toggle";
-import { Button } from "../ui/button";
-import { RadarLink } from "../shared/icons";
+import { ModeToggle } from "@/components/shared/mode-toggle";
+import { Button } from "@/components/ui/button";
+import { RadarLink } from "@/components/shared/icons";
 
 export default function NavBar({ session }: { session: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
@@ -17,14 +17,14 @@ export default function NavBar({ session }: { session: Session | null }) {
     <>
       <SignInModal />
       <div
-        className={`fixed top-0 w-full flex justify-center ${scrolled
-          ? "border-b border-border bg-background/50 backdrop-blur-xl"
+        className={`fixed top-0 flex w-full justify-center ${scrolled
+          ? "border-border bg-background/50 border-b backdrop-blur-xl"
           : "bg-background/0"
           } z-30 transition-all`}
       >
-        <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-full">
-          <Link href="/" className="flex items-center font-display text-2xl">
-            <RadarLink className="h-8 w-8 mr-2" width={30} height={30} />
+        <div className="mx-5 flex h-16 w-full max-w-screen-xl items-center justify-between">
+          <Link href="/" className="font-display flex items-center text-2xl">
+            <RadarLink className="mr-2 h-8 w-8" width={30} height={30} />
             <p>RadarLink</p>
           </Link>
           <div className="ml-auto mr-4"><ModeToggle /></div>
