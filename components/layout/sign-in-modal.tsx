@@ -41,7 +41,7 @@ const SignInModal = ({
       <div className="md:border-border w-full overflow-hidden shadow-xl md:max-w-md md:rounded-2xl md:border">
         <div className="border-border bg-background flex flex-col items-center justify-center space-y-3 border-b px-4 py-6 pt-8 text-center md:px-16">
           <a href="https://radarlink.tech">
-            <RadarLink className="mr-2 h-10 w-10" width={30} height={30} />
+            <RadarLink className="mr-2 h-10 w-10" />
           </a>
           <h3 className="font-display text-2xl font-bold">Sign In</h3>
           <p className="text-primary/50 text-sm">

@@ -8,7 +8,7 @@ export default function Footer() {
         © {new Date().getFullYear()} RadarLink
       </p>
       <Link href="/" className="font-display mx-auto flex items-center text-2xl">
-        <RadarLink className="mr-2 h-8 w-8" width={30} height={30} />
+        <RadarLink className="mr-2 h-8 w-8" />
         <p>RadarLink</p>
       </Link>
       <p className="text-primary/50 mx-5 w-48" />

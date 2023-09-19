@@ -24,7 +24,7 @@ export default function NavBar({ session }: { session: Session | null }) {
       >
         <div className="mx-5 flex h-16 w-full max-w-screen-xl items-center justify-between">
           <Link href="/" className="font-display flex items-center text-2xl">
-            <RadarLink className="mr-2 h-8 w-8" width={30} height={30} />
+            <RadarLink className="mr-2 h-8 w-8" />
             <p>RadarLink</p>
           </Link>
           <div className="ml-auto mr-4"><ModeToggle /></div>

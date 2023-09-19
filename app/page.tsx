@@ -1,28 +1,8 @@
 import Balancer from "react-wrap-balancer";
-import { DEPLOY_URL } from "@/lib/constants";
-import { Github, Twitter } from "@/components/shared/icons";
-import WebVitals from "@/components/home/web-vitals";
-import Image from "next/image";
-import { nFormatter } from "@/lib/utils";
+import { Twitter } from "@/components/shared/icons";
 import Technology from "@/components/home/technologies";
 
 export default async function Home() {
-  const { stargazers_count: stars } = await fetch(
-    "https://api.github.com/repos/richardfontein/radarlink",
-    {
-      ...(process.env.GITHUB_OAUTH_TOKEN && {
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_OAUTH_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-      }),
-      // data will revalidate every 24 hours
-      next: { revalidate: 86400 },
-    },
-  )
-    .then((res) => res.json())
-    .catch((e) => console.log(e)) || { stargazers_count: 0 };
-
   return (
     <>
       <div className="z-10 w-full max-w-xl px-5 xl:px-0">
@@ -41,7 +21,7 @@ export default async function Home() {
           className="animate-fade-up from-primary to-foreground/50 font-display bg-gradient-to-br bg-clip-text text-center text-4xl font-bold tracking-[-0.02em] text-transparent opacity-0 drop-shadow-sm md:text-7xl md:leading-[5rem]"
           style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
         >
-          <Balancer>Tech radar for your professional network</Balancer>
+          <Balancer>Collaborative, networked technology radar</Balancer>
         </h1>
         <p
           className="animate-fade-up text-primary/80 mt-6 text-center opacity-0 md:text-xl"
